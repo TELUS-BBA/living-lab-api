@@ -1,2 +1,2 @@
 # living-lab-server
-code for the server of the living lab
+This repository is no longer being developed, and is not up to date. See adamkpickering/living-lab.
