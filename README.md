@@ -1,2 +1,2 @@
-# living-lab-server
-This repository is no longer being developed, and is not up to date. See adamkpickering/living-lab.
+# living-lab-api
+This repository contains the code for the Django Rest Framework API for living-lab.
