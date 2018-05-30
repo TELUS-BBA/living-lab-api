@@ -4,8 +4,8 @@ from rest_framework.permissions import DjangoModelPermissions
 from rest_framework.response import Response
 from rest_framework.pagination import CursorPagination
 from django_filters import rest_framework as filters
-from testresults.models import Iperf3Result, PingResult, SockPerfResult
-from testresults.serializers import Iperf3ResultSerializer, PingResultSerializer, SockPerfResultSerializer
+from testresults.models import Iperf3Result, JitterResult, PingResult, SockPerfResult
+from testresults.serializers import Iperf3ResultSerializer, JitterResultSerializer, PingResultSerializer, SockPerfResultSerializer
 
 
 class TestResultPagination(CursorPagination):
@@ -21,6 +21,18 @@ class Iperf3ResultFilter(filters.FilterSet):
             'nanopi': ['exact'],
             'direction': ['exact'],
             'bandwidth': ['exact', 'lt', 'gt'],
+            'upload_date': ['exact', 'month', 'month__gt', 'month__lt', 'day', 'day__gt', 'day__lt',
+                            'hour', 'hour__gt', 'hour__lt'],
+        }
+
+
+class JitterResultFilter(filters.FilterSet):
+    class Meta:
+        model = JitterResult
+        fields = {
+            'id': ['exact'],
+            'nanopi': ['exact'],
+            'jitter': ['exact', 'lt', 'gt'],
             'upload_date': ['exact', 'month', 'month__gt', 'month__lt', 'day', 'day__gt', 'day__lt',
                             'hour', 'hour__gt', 'hour__lt'],
         }
@@ -59,6 +71,15 @@ class Iperf3ResultViewSet(ModelViewSet):
     pagination_class = TestResultPagination
     filter_backends = (filters.DjangoFilterBackend,)
     filter_class = Iperf3ResultFilter
+
+
+class JitterResultViewSet(ModelViewSet):
+    queryset = JitterResult.objects.all()
+    serializer_class = JitterResultSerializer
+    permission_classes = (DjangoModelPermissions,)
+    pagination_class = TestResultPagination
+    filter_backends = (filters.DjangoFilterBackend,)
+    filter_class = JitterResultFilter
 
 
 class PingResultViewSet(ModelViewSet):

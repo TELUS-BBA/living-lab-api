@@ -9,6 +9,12 @@ class Iperf3Result(models.Model):
     upload_date = models.DateTimeField(auto_now_add=True)
 
 
+class JitterResult(models.Model):
+    nanopi = models.ForeignKey(NanoPi, on_delete=models.CASCADE)
+    jitter = models.FloatField()
+    upload_date = models.DateTimeField(auto_now_add=True)
+
+
 class PingResult(models.Model):
     nanopi = models.ForeignKey(NanoPi, on_delete=models.CASCADE)
     state = models.CharField(max_length=4, choices=(('up', 'up'), ('down', 'down'),))
