@@ -22,7 +22,7 @@ class Iperf3ResultFilter(filters.FilterSet):
             'direction': ['exact'],
             'bandwidth': ['exact', 'lt', 'gt'],
             'upload_date': ['exact', 'month', 'month__gt', 'month__lt', 'day', 'day__gt', 'day__lt',
-                            'hour', 'hour__gt', 'hour__lt'],
+                            'hour', 'hour__gt', 'hour__lt', 'minute', 'minute__gt', 'minute__lt'],
         }
 
 
@@ -34,7 +34,7 @@ class JitterResultFilter(filters.FilterSet):
             'nanopi': ['exact'],
             'jitter': ['exact', 'lt', 'gt'],
             'upload_date': ['exact', 'month', 'month__gt', 'month__lt', 'day', 'day__gt', 'day__lt',
-                            'hour', 'hour__gt', 'hour__lt'],
+                            'hour', 'hour__gt', 'hour__lt', 'minute', 'minute__gt', 'minute__lt'],
         }
 
 
@@ -46,9 +46,9 @@ class PingResultFilter(filters.FilterSet):
             'nanopi': ['exact'],
             'state': ['exact'],
             'time': ['exact', 'month', 'month__gt', 'month__lt', 'day', 'day__gt', 'day__lt',
-                     'hour', 'hour__gt', 'hour__lt'],
+                     'hour', 'hour__gt', 'hour__lt', 'minute', 'minute__gt', 'minute__lt'],
             'upload_date': ['exact', 'month', 'month__gt', 'month__lt', 'day', 'day__gt', 'day__lt',
-                            'hour', 'hour__gt', 'hour__lt'],
+                            'hour', 'hour__gt', 'hour__lt', 'minute', 'minute__gt', 'minute__lt'],
         }
 
 
@@ -60,7 +60,7 @@ class SockPerfResultFilter(filters.FilterSet):
             'nanopi': ['exact'],
             'latency': ['exact', 'lt', 'gt'],
             'upload_date': ['exact', 'month', 'month__gt', 'month__lt', 'day', 'day__gt', 'day__lt',
-                            'hour', 'hour__gt', 'hour__lt'],
+                            'hour', 'hour__gt', 'hour__lt', 'minute', 'minute__gt', 'minute__lt'],
         }
 
 
